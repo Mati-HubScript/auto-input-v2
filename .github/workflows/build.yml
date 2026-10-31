@@ -15,3 +15,11 @@ jobs:
 
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
+
+      - name: Upload the mod
+        uses: actions/upload-artifact@v4
+        with:
+          name: auto-input
+          path: |
+            build/*.geode
+            output/*.geode
