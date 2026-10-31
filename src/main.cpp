@@ -398,9 +398,9 @@ namespace ai {
 
 // ------------------------------------------------------------------- hooks
 class $modify(AIGameLayer, GJBaseGameLayer) {
-    void processCommands(float dt) {
+    void processCommands(float dt, bool isHalfTick, bool isLastTick) {
         ai::tick(this, dt);
-        GJBaseGameLayer::processCommands(dt);
+        GJBaseGameLayer::processCommands(dt, isHalfTick, isLastTick);
     }
 };
 
