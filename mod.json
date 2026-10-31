@@ -6,11 +6,11 @@
 		"mac": "*",
 		"ios": "*"
 	},
-	"version": "v1.1.0",
+	"version": "v1.2.0",
 	"id": "pulidoxgd.auto-input",
 	"name": "Auto Input",
 	"developer": "pulidoxgd",
-	"description": "Detects the level hitboxes and the player hitbox and automatically clicks, holds or spam-clicks to dodge obstacles.",
+	"description": "Detects the level hitboxes, orbs, gaps and the player hitbox and automatically clicks, holds or taps to get through.",
 	"repository": "https://github.com/pulidoxgd/auto-input",
 	"settings": {
 		"enabled": {
@@ -28,10 +28,22 @@
 		},
 		"detect": {
 			"type": "string",
-			"default": "Spikes & blocks",
+			"default": "Everything",
 			"one-of": ["Spikes & blocks", "Everything"],
 			"name": "What to detect",
 			"description": "<cg>Spikes & blocks</c>: only hazards and solid blocks. <cy>Everything</c>: also slopes and breakable blocks."
+		},
+		"use-orbs": {
+			"type": "bool",
+			"default": true,
+			"name": "Use orbs",
+			"description": "Detects orbs and taps them when there is an obstacle shortly after (experimental)."
+		},
+		"jump-gaps": {
+			"type": "bool",
+			"default": true,
+			"name": "Jump gaps between platforms",
+			"description": "Jumps at the last moment when the platform ends and there is another one to land on."
 		},
 		"detect-range": {
 			"type": "float",
