@@ -1,0 +1,85 @@
+{
+	"geode": "5.11.2",
+	"gd": {
+		"win": "*",
+		"android": "*",
+		"mac": "*",
+		"ios": "*"
+	},
+	"version": "v1.1.0",
+	"id": "pulidoxgd.auto-input",
+	"name": "Auto Input",
+	"developer": "pulidoxgd",
+	"description": "Detects the level hitboxes and the player hitbox and automatically clicks, holds or spam-clicks to dodge obstacles.",
+	"repository": "https://github.com/pulidoxgd/auto-input",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"default": true,
+			"name": "Enable Auto Input",
+			"description": "Master switch. When off, the mod never touches your inputs."
+		},
+		"mode": {
+			"type": "string",
+			"default": "Performance",
+			"one-of": ["Performance", "Full level"],
+			"name": "Detection mode",
+			"description": "<cg>Performance</c>: only reads the hitboxes near the player (lighter). <cy>Full level</c>: caches every hitbox of the level when it starts (more memory and a longer load, but very light per frame)."
+		},
+		"detect": {
+			"type": "string",
+			"default": "Spikes & blocks",
+			"one-of": ["Spikes & blocks", "Everything"],
+			"name": "What to detect",
+			"description": "<cg>Spikes & blocks</c>: only hazards and solid blocks. <cy>Everything</c>: also slopes and breakable blocks."
+		},
+		"detect-range": {
+			"type": "float",
+			"default": 360.0,
+			"min": 60.0,
+			"max": 1500.0,
+			"control": { "slider": true, "input": true },
+			"name": "Detection range (units)",
+			"description": "How far ahead of the player hitboxes are read. 30 units = 1 block."
+		},
+		"auto-trigger": {
+			"type": "bool",
+			"default": true,
+			"name": "Automatic reaction distance",
+			"description": "The reaction distance is computed from the player's speed and game mode. Turn off to use the manual value below."
+		},
+		"trigger-distance": {
+			"type": "float",
+			"default": 40.0,
+			"min": 5.0,
+			"max": 400.0,
+			"control": { "slider": true, "input": true },
+			"name": "Reaction distance (units)",
+			"description": "How close to an obstacle the player must be before reacting. Only used when the automatic distance is off."
+		},
+		"reaction-ms": {
+			"type": "int",
+			"default": 0,
+			"min": 0,
+			"max": 1000,
+			"control": { "slider": true, "input": true },
+			"name": "Reaction time (ms)",
+			"description": "Delay between detecting an obstacle and acting on it, from 0 ms to 1 second."
+		},
+		"margin": {
+			"type": "float",
+			"default": 2.0,
+			"min": 0.0,
+			"max": 12.0,
+			"control": { "slider": true, "input": true },
+			"name": "Safety margin (units)",
+			"description": "Extra clearance added around every hitbox when planning."
+		},
+		"no-record": {
+			"type": "bool",
+			"default": true,
+			"name": "Don't save completions",
+			"description": "If Auto Input clicked during an attempt, the completion is NOT saved (treated like a test run). Keeps leaderboards and your stats legit."
+		}
+	}
+}
